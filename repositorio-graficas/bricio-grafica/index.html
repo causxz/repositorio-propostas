@@ -202,7 +202,8 @@
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-t border-gray-100 absolute top-full left-0 w-full shadow-xl">
             <div class="px-4 pt-2 pb-6 space-y-1">
                 <a href="#servicos"
                     class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-pink hover:bg-gray-50 rounded-md">Serviços</a>
@@ -265,11 +266,11 @@
                     </div>
 
                     <h1
-                        class="font-heading text-5xl lg:text-7xl font-extrabold tracking-tight text-brand-dark leading-[1.1] mb-6">
+                        class="font-heading text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-brand-dark leading-tight lg:leading-[1.1] mb-6">
                         O seu produto impresso com <span class="text-gradient">qualidade premium.</span>
                     </h1>
 
-                    <p class="text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl">
+                    <p class="text-base md:text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl">
                         Agilidade e perfeição nos detalhes. De Camaçari para todo o Brasil. Atendimento 24 horas para
                         garantir que seu projeto não pare.
                     </p>
@@ -377,8 +378,9 @@
             <div class="text-center max-w-2xl mx-auto mb-16 reveal">
                 <h2 class="text-brand-pink font-bold tracking-widest text-sm uppercase mb-3">Por que escolher a Brício?
                 </h2>
-                <h3 class="font-heading text-4xl font-extrabold text-brand-dark mb-4">Empresa de Empreendedores.
-                    Qualidade Inquestionável.</h3>
+                <h3 class="font-heading text-3xl md:text-4xl font-extrabold text-brand-dark mb-4 leading-tight">
+                    Empresa de Empreendedores.<br class="hidden md:block"> Qualidade Inquestionável.
+                </h3>
                 <p class="text-gray-500">Unimos a sensibilidade do design à velocidade da produção. Na Brício, seu prazo
                     é respeitado e a qualidade impressiona.</p>
             </div>
@@ -591,7 +593,8 @@
                 <div class="flex justify-center items-center gap-1 text-yellow-400 mb-4 text-2xl">
                     ★★★★★
                 </div>
-                <h3 class="font-heading text-4xl font-extrabold text-brand-dark mb-4">Nota 5.0 no Google</h3>
+                <h3 class="font-heading text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">Nota 5.0 no Google
+                </h3>
                 <p class="text-gray-500">Veja o que clientes reais em Camaçari e região falam sobre a qualidade e
                     agilidade da Brício Gráfica.</p>
             </div>
@@ -724,7 +727,7 @@
                     <div
                         class="mt-12 w-full h-64 bg-gray-200 rounded-xl overflow-hidden border-2 border-white shadow-inner">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.306029868772!2d-38.33088902409743!3d-12.71618228757912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71667b2d5d852cb%3A0xc6c4f027ed7c5952!2sR.%20Porto%20Seguro%2C%2022%20-%20Verdes%20Horizontes%2C%20Cama%C3%A7ari%20-%20BA%2C%2042809-687!5e0!3m2!1spt-BR!2sbr!4v1716223500000!5m2!1spt-BR!2sbr"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3892.033394367921!2d-38.330332199999994!3d-12.711243399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7166948939107a9%3A0xaa166a0a471f09d9!2zQnLDrWNpbyBHcsOhZmljYQ!5e0!3m2!1spt-BR!2sbr!4v1779734127058!5m2!1spt-BR!2sbr"
                             class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
@@ -805,7 +808,7 @@
 
     <footer class="bg-[#111111] text-gray-400 py-12 border-t border-[#222]">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6 reveal">
                 <div class="flex flex-col items-center md:items-start gap-4">
                     <img src="images/logo.png" alt="Brício Gráfica"
                         class="h-10 opacity-90 grayscale hover:grayscale-0 transition-all duration-300">
@@ -902,8 +905,10 @@
         }
 
 
-        // Atualiza o ano automaticamente
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Atualiza o ano automaticamente em todos os locais necessários
+        const currentYear = new Date().getFullYear();
+        if (document.getElementById('year')) document.getElementById('year').textContent = currentYear;
+        document.querySelectorAll('.current-year').forEach(el => el.textContent = currentYear);
 
         // 1.1 Fechar menu mobile ao clicar numa secção
         document.querySelectorAll('#mobile-menu a').forEach(link => {
